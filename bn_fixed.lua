@@ -1,41 +1,4 @@
 
--- ================= ONE-TIME KEY SYSTEM (DELTA SAFE) =================
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-
--- CHANGE / MANAGE YOUR KEYS HERE
-local ValidKeys = {
-    ["18271528176362015"] = true,
-    ["Nah"] = true
-}
-
--- One-time per user marker (local machine)
-local UsedFile = "BloxFruits_Key_Used.txt"
-
-if not isfile then
-    -- Executor doesn't support filesystem; allow execution to avoid false blocks
-else
-    if isfile(UsedFile) then
-        -- User already validated before
-    else
-        local inputKey = ""
-        if getclipboard then
-            inputKey = tostring(getclipboard())
-        end
-
-        if ValidKeys[inputKey] then
-            writefile(UsedFile, inputKey)
-        else
-            pcall(function()
-                LocalPlayer:Kick("Invalid or already used key.\nGet a new key from admin.")
-            end)
-            return
-        end
-    end
-end
--- ================= END KEY SYSTEM =================
-
-
 local v14 = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))();
 local v15 = v14:CreateWindow({
     Title = "FaFa Beta Hub-Blox Fruit [ Freemium ]",-- tuandzk91849,uhj0446,ngulonxam
